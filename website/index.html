@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BH Apps — Practical apps for UK drivers</title>
+<meta name="description" content="BH Apps builds small, honest Android apps that stop UK drivers getting caught out: Toll Mate for toll roads and charging zones, ParkMate for private car parks.">
+<meta name="theme-color" content="#0B0D12">
+<meta property="og:title" content="BH Apps — Practical apps for UK drivers">
+<meta property="og:description" content="Toll Mate and ParkMate: detect the charge, remind you before the deadline, keep your location on your phone.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://bhapps.co.uk/">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0B0D12;--surface:#15181F;--surface2:#1D2129;--text:#F5F7FA;--muted:#A3ADBD;--hint:#6B7280;--border:rgba(255,255,255,.09);--tm:#3B82F6;--pm:#2DD4A0;--radius:16px;--max:1040px}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--text);text-decoration:none}
+img{max-width:100%;display:block}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
+header{border-bottom:1px solid var(--border)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:-.02em;font-size:18px}
+.bh{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:9px;background:var(--text);color:var(--bg);font-weight:800;font-size:13px;letter-spacing:-.03em}
+nav a{color:var(--muted);margin-left:22px;font-size:15px}
+nav a:hover{color:var(--text)}
+.hero{padding:88px 0 56px;text-align:left}
+.hero h1{font-size:clamp(36px,6vw,64px);line-height:1.02;letter-spacing:-.035em;margin:0 0 18px;max-width:16ch}
+.hero p{font-size:19px;color:var(--muted);max-width:58ch;margin:0}
+.hero p strong{color:var(--text);font-weight:600}
+@media(max-width:640px){.hero{padding-top:56px}}
+.apps{padding:16px 0 64px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media(max-width:760px){.grid{grid-template-columns:1fr}}
+.app{position:relative;display:block;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:28px;overflow:hidden;transition:transform .15s,border-color .15s}
+.app:hover{transform:translateY(-2px);border-color:var(--muted)}
+.app:before{content:"";position:absolute;inset:0;background:radial-gradient(90% 60% at 100% 0%,color-mix(in srgb,var(--c) 22%,transparent),transparent 70%);pointer-events:none}
+.app.tm{--c:var(--tm)}.app.pm{--c:var(--pm)}
+.app .head{display:flex;align-items:center;gap:14px;margin-bottom:14px}
+.app img{width:56px;height:56px;border-radius:14px}
+.app h2{margin:0;font-size:24px;letter-spacing:-.02em}
+.app .tag{font-size:13px;color:var(--c);font-weight:600}
+.app p{margin:0 0 18px;color:var(--muted)}
+.app .go{display:inline-flex;align-items:center;gap:6px;color:var(--c);font-weight:600;font-size:15px}
+.app .go:after{content:"→"}
+.status{display:inline-block;font-size:12px;padding:3px 9px;border-radius:999px;background:var(--surface2);border:1px solid var(--border);color:var(--muted);margin-left:8px;vertical-align:middle}
+section.about{border-top:1px solid var(--border);padding:64px 0}
+section.about .wrap{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+@media(max-width:760px){section.about .wrap{grid-template-columns:1fr;gap:24px}}
+section h3{font-size:clamp(24px,3vw,30px);letter-spacing:-.02em;margin:0 0 12px}
+section p{color:var(--muted);margin:0 0 14px}
+.principles{list-style:none;padding:0;margin:0;display:grid;gap:12px}
+.principles li{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:14px 16px;color:var(--muted)}
+.principles li b{display:block;color:var(--text);margin-bottom:2px}
+section.contact{border-top:1px solid var(--border);padding:56px 0}
+.contact a.mail{font-size:clamp(20px,3vw,28px);font-weight:700;letter-spacing:-.02em;text-decoration:underline;text-decoration-color:var(--hint);text-underline-offset:6px}
+.contact a.mail:hover{text-decoration-color:var(--text)}
+footer{border-top:1px solid var(--border);padding:32px 0;color:var(--hint);font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+footer a{color:var(--muted);margin-right:18px}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="brand" href="#"><span class="bh">BH</span>BH Apps</a>
+    <nav aria-label="Primary">
+      <a href="#apps">Apps</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <h1>Small apps that stop drivers getting caught out.</h1>
+      <p>BH Apps builds Android apps for UK drivers around one idea: <strong>detect the charge, remind you before the deadline, and keep your location on your phone.</strong> No accounts, no ads, no data sold.</p>
+    </div>
+  </section>
+
+  <section class="apps" id="apps">
+    <div class="wrap">
+      <div class="grid">
+        <a class="app tm" href="https://tollmate.bhapps.co.uk">
+          <div class="head">
+            <img src="assets/tollmate.png" alt="" width="56" height="56">
+            <div><h2>Toll Mate</h2><span class="tag">Toll roads &amp; charging zones</span></div>
+          </div>
+          <p>Detects barrierless toll crossings, clean air zones and airport drop-off charges you have to pay online afterwards, and reminds you before the deadline passes — with a link straight to the operator's payment page.</p>
+          <span class="go">tollmate.bhapps.co.uk</span><span class="status">Google Play</span>
+        </a>
+        <a class="app pm" href="https://parkmate.bhapps.co.uk">
+          <div class="head">
+            <img src="assets/parkmate.svg" alt="" width="56" height="56">
+            <div><h2>ParkMate</h2><span class="tag">Private car parks</span></div>
+          </div>
+          <p>Notices when you've pulled into a privately enforced car park and tells you when you need to leave, before a Parking Charge Notice lands on your doormat. Thousands of UK sites, refreshed weekly.</p>
+          <span class="go">parkmate.bhapps.co.uk</span><span class="status">Closed testing</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="wrap">
+      <div>
+        <h3>About BH Apps</h3>
+        <p>BH Apps is an independent developer of Android apps for UK drivers. Each app started with a charge that was easy to miss and expensive to forget — and a belief that a reminder is only useful if you can trust it.</p>
+        <p>The apps are free. If one of them saves you a penalty, you can <a href="https://ko-fi.com/nickbradshawhughes" rel="noopener" style="text-decoration:underline;text-underline-offset:4px">leave a tip</a>.</p>
+      </div>
+      <ul class="principles">
+        <li><b>Only the charges you can forget</b>Pay-at-barrier sites never trigger an alert. False alarms teach people to ignore the real ones.</li>
+        <li><b>Location stays on the device</b>Geofencing runs on your phone. Nothing is uploaded, and there's no account to create.</li>
+        <li><b>Signs are the final word</b>Rules and prices change. The apps are a safety net, and they say so.</li>
+        <li><b>Updates without an update</b>Boundaries, prices and car-park data sync from a public source, so fixes reach you without a new release.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <h3>Get in touch</h3>
+      <p>Support, corrections, partnership enquiries or press:</p>
+      <a class="mail" href="mailto:hello@bhapps.co.uk">hello@bhapps.co.uk</a>
+    </div>
+  </section>
+</main>
+<footer>
+  <div class="wrap">
+    <div>© 2026 BH Apps</div>
+    <div>
+      <a href="https://tollmate.bhapps.co.uk/privacy.html">Toll Mate privacy</a>
+      <a href="https://parkmate.bhapps.co.uk/privacy.html">ParkMate privacy</a>
+      <a href="https://github.com/nickbh89" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
